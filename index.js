@@ -22,6 +22,12 @@ import http from 'node:http';
         res.end(JSON.stringify({ mensagem: 'Olá, Mundo!'}));
         return;
     }
+
+    if (method === 'GET' && url === '/sobre') {
+        res.writeHead(200, { 'Content-Type': 'text/html' })
+        res.end('<h1>Sobre</h1>');
+        return;
+    }
  
 });
 
