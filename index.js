@@ -80,7 +80,17 @@ import http from 'node:http';
         return;
     }
 
-    
+    //rota 09
+    if (method === 'GET' && url === '/agente') {
+        const ua = (req.headers['user-agent'] || '').toLocaleLowerCase();
+        let resposta;
+        if (ua.includes('curl')) resposta = 'Você é o cURL';
+        else if (ua.includes('chrome')) resposta = 'Você é um navegador';
+        else resposta = 'Agente desconhecido';
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end(resposta);
+        return;
+    }
  
 });
 
