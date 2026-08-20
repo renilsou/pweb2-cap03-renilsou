@@ -47,6 +47,13 @@ import http from 'node:http';
         });
         return;
     }
+
+    if (method === 'PUT' && partes[0] === 'itens' && partes.length === 2) {
+        const id = partes[1];
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end(`Item ${id} atualizado`);
+        return;
+    }
  
 });
 
