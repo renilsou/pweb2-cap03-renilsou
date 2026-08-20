@@ -65,6 +65,13 @@ import http from 'node:http';
         res.writeHead(204);
         res.end();
     }
+
+    //rota 07
+    if (method === 'PATCH' && url === '/config') {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Configuração atualizada');
+        return;
+    }
  
 });
 
