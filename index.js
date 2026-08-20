@@ -64,6 +64,7 @@ import http from 'node:http';
     if (method === 'DELETE' && partes[0] === 'itens' && partes.length === 2) {
         res.writeHead(204);
         res.end();
+        return;
     }
 
     //rota 07
