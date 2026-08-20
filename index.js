@@ -18,7 +18,7 @@ import http from 'node:http';
     const { method, url } = req;
 
     if (method === 'GET' && url === '/') {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
         res.end(JSON.stringify({ mensagem: 'Olá, Mundo!'}));
         return;
     }
