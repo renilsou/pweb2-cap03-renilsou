@@ -17,18 +17,21 @@ import http from 'node:http';
  const server = http.createServer((req, res) => {
     const { method, url } = req;
 
+    //rota 01
     if (method === 'GET' && url === '/') {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
         res.end('Olá, Mundo!');
         return;
     }
 
+    //rota 02
     if (method === 'GET' && url === '/sobre') {
         res.writeHead(200, { 'Content-Type': 'text/html' })
         res.end('<h1>Sobre</h1>');
         return;
     }
 
+    //rota 03
     const partes = url.split('/').filter(Boolean);
 
     if (method === 'GET' && partes[0] === 'saudacao' && partes.length === 2) { 
@@ -38,6 +41,7 @@ import http from 'node:http';
         return; 
     }
 
+    //rota 04
     if (method === 'POST' && url === '/echo') {
         let body = '';
         req.on('data', chunk => { body += chunk; });
@@ -48,11 +52,18 @@ import http from 'node:http';
         return;
     }
 
+    //rota 05
     if (method === 'PUT' && partes[0] === 'itens' && partes.length === 2) {
         const id = partes[1];
         res.writeHead(200, { 'Content-Type': 'text/plain' });
         res.end(`Item ${id} atualizado`);
         return;
+    }
+
+    //rota 06
+    if (method === 'DELETE' && partes[0] === 'itens' && partes.length === 2) {
+        res.writeHead(204);
+        res.end();
     }
  
 });
