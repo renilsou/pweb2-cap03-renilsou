@@ -72,6 +72,15 @@ import http from 'node:http';
         res.end('Configuração atualizada');
         return;
     }
+
+    //rota 08
+    if (method === 'HEAD' && url === '/status') {
+        res.writeHead(200, { 'X-Status': 'ok' })
+        res.end();
+        return;
+    }
+
+    
  
 });
 
