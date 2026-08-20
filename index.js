@@ -37,6 +37,16 @@ import http from 'node:http';
         res.end(`Olá, ${nome}!`); 
         return; 
     }
+
+    if (method === 'POST' && url === '/echo') {
+        let body = '';
+        req.on('data', chunk => { body += chunk; });
+        req.on('end', () => {
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end(body);
+        });
+        return;
+    }
  
 });
 
