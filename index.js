@@ -19,7 +19,7 @@ import http from 'node:http';
 
     if (method === 'GET' && url === '/') {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end(JSON.stringify({ mensagem: 'Olá, Mundo!'}));
+        res.end('Olá, Mundo!');
         return;
     }
 
