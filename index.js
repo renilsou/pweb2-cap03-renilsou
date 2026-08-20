@@ -91,6 +91,18 @@ import http from 'node:http';
         res.end(resposta);
         return;
     }
+
+    //rota 10
+    if (method === 'GET' && url === '/secreto') {
+        if (req.headers['x-senha'] === '1234') {
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end('Acesso liberado');
+        } else {
+            res.writeHead(401, { 'Content-Type': 'text/plain' });
+            res.end('Não autorizado')
+        }
+        return;
+    }
  
 });
 
