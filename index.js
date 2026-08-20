@@ -10,12 +10,19 @@
 //
 // Ponto de partida (descomente e desenvolva):
 //
-// import http from 'node:http';
-//
-// const PORT = process.env.PORT || 3000;
-//
-// const server = http.createServer((req, res) => {
-//   // dica: use req.method, req.url e req.headers para decidir a resposta
-// });
-//
-// server.listen(PORT, () => console.log(`Servidor em http://localhost:${PORT}`));
+import http from 'node:http';
+
+ const PORT = process.env.PORT || 3000;
+
+ const server = http.createServer((req, res) => {
+    const { method, url } = req;
+
+    if (method === 'GET' && url === '/') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ mensagem: 'Olá, Mundo!'}));
+        return;
+    }
+ 
+});
+
+ server.listen(PORT, () => console.log(`Servidor em http://localhost:${PORT}`));
