@@ -103,6 +103,10 @@ import http from 'node:http';
         }
         return;
     }
+
+    //fallback 404
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Rota não encontrada');
  
 });
 
