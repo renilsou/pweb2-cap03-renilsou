@@ -28,6 +28,15 @@ import http from 'node:http';
         res.end('<h1>Sobre</h1>');
         return;
     }
+
+    const partes = url.split('/').filter(Boolean);
+
+    if (method === 'GET' && partes[0] === 'saudacao' && partes.length === 2) { 
+        const nome = partes[1]; 
+        res.writeHead(200, { 'Content-Type': 'text/plain' }); 
+        res.end(`Olá, ${nome}!`); 
+        return; 
+    }
  
 });
 
